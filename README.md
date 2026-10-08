@@ -90,3 +90,9 @@ server.mjs             # local server / 本地服务器
 实际浏览器预览在本次环境中被安全检查阻止，因此真实浏览器桌面、手机尺寸与视觉表现尚未验证；离线 DOM 测试不能替代这些检查。响应式样式包含桌面五列横向时间线和手机单列纵向时间线。
 
 Real-browser preview was blocked by an unavailable security check in this environment; desktop/mobile visual rendering remains unverified. Offline DOM tests do not replace those checks. Responsive styles define five-column horizontal desktop and single-column vertical mobile timelines.
+
+## 时间线 06 / Timeline stage 06
+
+用户新增“06 云端故土”，全部待确定；不添加设定陈述或问题清单。网站标题仍为《以后呢》。
+
+The user added “06 云端故土 / Cloud Homeland”, entirely undefined, with no claims or question list. The website remains titled 《以后呢》.

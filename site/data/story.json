@@ -566,6 +566,27 @@
       ],
       "definitionState": "undefined",
       "sourceStatus": "待讨论 / 待定义"
+    },
+    {
+      "id": "cloud-homeland",
+      "title": "云端故土",
+      "titleEn": "Cloud Homeland",
+      "type": "timeline",
+      "status": "open",
+      "statusLabel": "待确定",
+      "sourceStatus": "全部待确定",
+      "background": "这部分全部待确定。",
+      "claims": [],
+      "blocks": [],
+      "questionIds": [],
+      "tags": [
+        "云端故土",
+        "待确定"
+      ],
+      "order": 6,
+      "definitionState": "undefined",
+      "placeholderOnly": true,
+      "showQuestions": false
     }
   ],
   "questions": [

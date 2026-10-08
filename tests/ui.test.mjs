@@ -17,13 +17,17 @@ await import('../site/assets/app.js');
 await new Promise(resolve=>setImmediate(resolve));
 const $=selector=>window.document.querySelector(selector);
 
-test('board renders all five timeline stages and the renamed undefined record',()=>{
+test('board renders all six timeline stages and the renamed undefined record',()=>{
   assert.equal($('#board').hidden,false);
   assert.equal($('#error').hidden,true);
-  assert.equal(window.document.querySelectorAll('.timeline-node').length,5);
+  assert.equal(window.document.querySelectorAll('.timeline-node').length,6);
   assert.match($('#undefined-card').textContent,/以后呢/);
   assert.match($('#undefined-card').textContent,/UNDEFINED/);
-  assert.doesNotMatch($('#board').textContent,/云端故土/);
+  assert.match($('#timeline-nodes').lastElementChild.textContent,/06[\s\S]*云端故土/);
+  $('[data-entry="cloud-homeland"]').click();
+  assert.match($('#detail-content').textContent,/全部待确定/);
+  assert.doesNotMatch($('#detail-content').textContent,/待讨论问题|Open questions/);
+  $('#close-dialog').click();
   assert.equal(window.document.querySelectorAll('.question-row').length,story.questions.length);
 });
 

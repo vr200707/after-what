@@ -10,7 +10,7 @@ const dialog = $('#detail-dialog');
 
 function statusBadge(entry) {
   const s = data.statusDefinitions[entry.status];
-  const label = entry.sourceStatus === '已确定方向' ? '已确定方向' : s.zh;
+  const label = entry.statusLabel || (entry.sourceStatus === '已确定方向' ? '已确定方向' : s.zh);
   return `<span class="status status-${entry.status}">${escape(label)} <span>${escape(s.en)}</span></span>`;
 }
 
@@ -28,7 +28,9 @@ function openEntry(id, {updateHash = false} = {}) {
   if (!entry) return;
   previousFocus = document.activeElement;
   const questions = data.questions.filter(q => entry.questionIds.includes(q.id));
-  $('#detail-content').innerHTML = `<div class="detail-heading"><span class="section-label">${escape(typeLabels[entry.type])} / ${escape(entry.titleEn)}</span><h2 id="detail-title">${escape(entry.title)}</h2><div class="detail-badges">${statusBadge(entry)}${entry.definitionState === 'undefined' ? '<span class="undefined-label">UNDEFINED / 待定义</span>' : ''}</div>${entry.sourceStatus ? `<p class="source-state">原文状态：${escape(entry.sourceStatus)}</p>` : ''}</div>
+  if (entry.placeholderOnly) {
+    $('#detail-content').innerHTML = `<div class="detail-heading"><span class="section-label">${escape(typeLabels[entry.type])} / ${escape(entry.titleEn)}</span><h2 id="detail-title">${escape(entry.title)}</h2>${statusBadge(entry)}</div><section class="detail-section"><h3>当前状态 <span>Status</span></h3><p>${escape(entry.background)}</p></section>`;
+  } else $('#detail-content').innerHTML = `<div class="detail-heading"><span class="section-label">${escape(typeLabels[entry.type])} / ${escape(entry.titleEn)}</span><h2 id="detail-title">${escape(entry.title)}</h2><div class="detail-badges">${statusBadge(entry)}${entry.definitionState === 'undefined' ? '<span class="undefined-label">UNDEFINED / 待定义</span>' : ''}</div>${entry.sourceStatus ? `<p class="source-state">原文状态：${escape(entry.sourceStatus)}</p>` : ''}</div>
     <section class="detail-section"><h3>背景设定 <span>Background</span></h3><p>${escape(entry.background)}</p></section>
     ${entry.claims.length ? `<section class="detail-section"><h3>当前设定陈述 <span>Claims</span></h3><ul class="claim-list">${entry.claims.map(c=>`<li>${statusBadge(c)}<p>${escape(c.text)}</p>${c.qualification?`<small>${escape(c.qualification)}</small>`:''}</li>`).join('')}</ul></section>` : '<p class="unconfirmed-note">本条目没有单独标记的已确定设定陈述。</p>'}
     ${entry.blocks.length ? `<section class="detail-section"><h3>内容记录 <span>Notes</span></h3>${renderBlocks(entry.blocks)}</section>` : ''}
@@ -55,7 +57,9 @@ function renderStats() {
 
 function renderTimeline() {
   const timeline=data.entries.filter(e=>e.type==='timeline').sort((a,b)=>a.order-b.order);
-  $('#timeline-nodes').innerHTML=timeline.map(e=>`<button class="timeline-node" data-entry="${e.id}" aria-label="查看${escape(e.title)}的设定与问题"><div class="node-top"><span class="node-number">${String(e.order).padStart(2,'0')}</span>${statusBadge(e)}</div><div class="timeline-rail"><span></span></div><h3>${escape(e.title)}</h3><span class="node-en">${escape(e.titleEn)}</span><p>${escape(e.background)}</p><span class="node-bottom">${e.questionIds.length} 个待讨论问题<span>查看详情</span></span></button>`).join('');
+  $('#timeline-summary').textContent=`${timeline.length} 个阶段 · 尚未设定年份`;
+  $('#timeline-nodes').style.setProperty('--stage-count',timeline.length);
+  $('#timeline-nodes').innerHTML=timeline.map(e=>`<button class="timeline-node" data-entry="${e.id}" aria-label="查看${escape(e.title)}${e.showQuestions===false ? '，全部待确定' : '的设定与问题'}"><div class="node-top"><span class="node-number">${String(e.order).padStart(2,'0')}</span>${statusBadge(e)}</div><div class="timeline-rail"><span></span></div><h3>${escape(e.title)}</h3><span class="node-en">${escape(e.titleEn)}</span><p>${escape(e.background)}</p><span class="node-bottom">${e.showQuestions===false ? '全部待确定' : `${e.questionIds.length} 个待讨论问题`}<span>查看详情</span></span></button>`).join('');
 }
 
 function renderContent() {
