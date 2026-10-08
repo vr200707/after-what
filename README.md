@@ -37,9 +37,9 @@ Edit `site/data/story.json`, then commit to GitHub. Entries, open questions, and
 
 Every entry needs a unique `id`; question and entry references must resolve. Status values are `confirmed`, `tentative`, and `open`. `sourceStatus` preserves nuances such as confirmed direction; `definitionState: "undefined"` independently marks undefined concepts. Only timeline entries have an `order`.
 
-条目“暂定”和“待讨论”不代表已确定剧情。狗和骨头场景原文未指定状态，统计归入待讨论并明确显示状态未指定；最优解原文未指定条目状态，界面归为暂定哲学讨论。问题清单保留原文的问题，即使附近已给出方向；逻辑张力仅新增问题，不修正设定。
+条目“暂定”和“待讨论”不代表已确定剧情。狗和骨头场景原文未指定状态，统计归入待讨论并明确显示状态未指定；最优解原文未指定条目状态，界面归为暂定哲学讨论。问题清单仅保留“故事线讨论chat”实际讨论过的 10 个核心问题，相近提问合并；已删除打包提示词扩展的问题、额外逻辑张力和待定义部分的全部 15 个问题。每个问题的 source 字段记录聊天来源。
 
-Tentative and open records are not confirmed plot. The original Dog & Bone scene has no specified status; it is counted as open and visibly marked unassigned. The optimal-solution record has no original entry status and is presented as tentative philosophical discussion. Questions remain open even when surrounding notes offer a direction. Tensions are questions, not changes to the story.
+Tentative and open records are not confirmed plot. The original Dog & Bone scene has no specified status; it is counted as open and visibly marked unassigned. The optimal-solution record has no original entry status and is presented as tentative philosophical discussion. The list contains only 10 core questions actually discussed in 故事线讨论chat, merging related prompts. Expanded brief questions, additional tensions, and all 15 undefined-concept questions have been removed. Each question records its discussion source.
 
 项目标题与原先待定义部分均已更名《以后呢》。这个名字不附带任何自行补充的世界观解释。数据没有主角、结局、战争或高维文明动机的新增答案。
 

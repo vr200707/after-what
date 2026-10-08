@@ -45,5 +45,7 @@ test('actual story keeps the renamed project, five stages, undefined concept and
     for (const q of e.questionIds) assert.ok(questionIds.has(q),`${e.id} references missing question ${q}`);
   }
   for (const q of data.questions) for (const id of q.relatedEntryIds) assert.ok(entryIds.has(id));
-  assert.ok(data.questions.some(q=>q.kind==='tension'));
+  assert.equal(data.entries.find(e=>e.id==='after-what').questionIds.length,0);
+  assert.equal(data.questions.length,10);
+  assert.ok(data.questions.every(q=>q.source?.threadTitle==='故事线讨论chat'));
 });

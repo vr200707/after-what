@@ -33,8 +33,8 @@ function openEntry(id, {updateHash = false} = {}) {
     ${entry.claims.length ? `<section class="detail-section"><h3>当前设定陈述 <span>Claims</span></h3><ul class="claim-list">${entry.claims.map(c=>`<li>${statusBadge(c)}<p>${escape(c.text)}</p>${c.qualification?`<small>${escape(c.qualification)}</small>`:''}</li>`).join('')}</ul></section>` : '<p class="unconfirmed-note">本条目没有单独标记的已确定设定陈述。</p>'}
     ${entry.blocks.length ? `<section class="detail-section"><h3>内容记录 <span>Notes</span></h3>${renderBlocks(entry.blocks)}</section>` : ''}
     ${entry.note ? `<p class="unconfirmed-note">${escape(entry.note)}</p>` : ''}
-    <section class="detail-section"><h3>待讨论问题 <span>Open questions · ${questions.length}</span></h3>${questions.length ? `<ul class="detail-questions">${questions.map(q=>`<li>${q.kind==='tension'?'<span class="tension-label">逻辑张力</span>':''}<p>${escape(q.text)}</p></li>`).join('')}</ul>` : '<p>原文未为此条目单独列出问题。</p>'}</section>
-    <button class="outline-button" data-question-source="${escape(id)}">跳到问题清单中的首个相关问题</button>`;
+    <section class="detail-section"><h3>待讨论问题 <span>Open questions · ${questions.length}</span></h3>${questions.length ? `<ul class="detail-questions">${questions.map(q=>`<li>${q.kind==='tension'?'<span class="tension-label">逻辑张力</span>':''}<p>${escape(q.text)}</p></li>`).join('')}</ul>` : '<p>此条目目前没有列入讨论清单的问题。</p>'}</section>
+    ${questions.length ? `<button class="outline-button" data-question-source="${escape(id)}">跳到问题清单中的首个相关问题</button>` : ''}`;
   if (!dialog.open) dialog.showModal();
   $('#close-dialog').focus();
   if (updateHash) history.replaceState(null, '', `#record-${id}`);
@@ -69,16 +69,16 @@ function renderContent() {
     <article class="concept-card logic-card"><div class="card-heading"><span class="section-label">Philosophy / Logic</span>${statusBadge(optimal)}</div><h3>${escape(optimal.title)}</h3><p>${escape(optimal.blocks[0].text)}</p>${renderBlocks(optimal.blocks.filter(b=>b.type==='flow'))}<p class="card-note">${escape(optimal.summaryNote)}</p><button class="text-button" data-entry="optimal">查看最优解讨论</button></article>`;
   $('#society-cards').innerHTML=data.entries.filter(e=>e.type==='society').map(e=>`<article class="society-card"><div class="card-heading"><span class="section-label">${escape(e.titleEn)}</span>${statusBadge(e)}</div><h3>${escape(e.title)}</h3><p>${escape(e.background)}</p>${renderBlocks(e.blocks)}<button class="outline-button" data-entry="${e.id}">查看设想与 ${e.questionIds.length} 个问题</button></article>`).join('');
   const undefinedEntry=data.entries.find(e=>e.type==='undefined');
-  $('#undefined-card').innerHTML=`<article class="undefined-card"><div><span class="undefined-label">UNDEFINED / 待定义</span><h2>${escape(undefinedEntry.title)}<span>？</span></h2><p>${escape(undefinedEntry.background)}</p><p>定义、创造者、保存的内容，以及它与结局的关系，均保持开放。</p><button class="outline-button" data-entry="${undefinedEntry.id}">查看待定义问题</button></div><div class="undefined-questions">${undefinedEntry.questionIds.slice(0,4).map(id=>`<span>${escape(data.questions.find(q=>q.id===id).text)}</span>`).join('')}<p>问题是入口，尚不是答案。</p></div></article>`;
+  $('#undefined-card').innerHTML=`<article class="undefined-card"><div><span class="undefined-label">UNDEFINED / 待定义</span><h2>${escape(undefinedEntry.title)}<span>？</span></h2><p>${escape(undefinedEntry.background)}</p></div></article>`;
+
 }
 
 function renderQuestions() {
   const query=$('#question-search').value;
-  const kind=$('#question-kind').value;
-  const filtered=filterQuestions(data.questions,{query,category:activeCategory,kind});
-  $('#category-filters').innerHTML=[{id:'all',zh:'全部',en:'All'},...data.categories].map(c=>`<button class="filter-chip ${c.id===activeCategory?'active':''}" data-category="${c.id}" aria-pressed="${c.id===activeCategory}">${escape(c.zh)}<span>${escape(c.en)}</span></button>`).join('');
+  const filtered=filterQuestions(data.questions,{query,category:activeCategory});
+  $('#category-filters').innerHTML=[{id:'all',zh:'全部',en:'All'},...data.categories.filter(c=>data.questions.some(q=>q.categoryIds.includes(c.id)))].map(c=>`<button class="filter-chip ${c.id===activeCategory?'active':''}" data-category="${c.id}" aria-pressed="${c.id===activeCategory}">${escape(c.zh)}<span>${escape(c.en)}</span></button>`).join('');
   $('#question-count').textContent=`显示 ${filtered.length} / ${data.questions.length} 个问题`;
-  $('#reset-filters').hidden=activeCategory==='all'&&!query&&kind==='all';
+  $('#reset-filters').hidden=activeCategory==='all'&&!query;
   $('#question-list').innerHTML=filtered.length?filtered.map(q=>`<article class="question-row" id="${q.id}"><div class="question-text">${q.kind==='tension'?'<span class="tension-label">逻辑张力 / Tension</span>':''}<p>${escape(q.text)}</p><div class="question-categories">${q.categoryIds.map(id=>{const c=data.categories.find(c=>c.id===id);return `<span>${escape(c?.zh||id)}</span>`;}).join('')}</div></div><div class="question-sources">${q.relatedEntryIds.map(id=>{const e=data.entries.find(e=>e.id===id);return `<button data-entry="${id}" class="source-link">${escape(e.title)}</button>`;}).join('')||'<span class="narrative-source">叙事待定</span>'}<span class="open-word">待讨论</span></div></article>`).join(''):'<div class="empty-state"><h3>没有匹配的问题</h3><p>试试其他关键词，或重置筛选。</p></div>';
 }
 
@@ -97,13 +97,12 @@ document.addEventListener('click',event=>{
   const categoryButton=event.target.closest('[data-category]');
   if(categoryButton){activeCategory=categoryButton.dataset.category;renderQuestions();$('#category-filters').querySelector(`[data-category="${activeCategory}"]`)?.focus();}
   const sourceButton=event.target.closest('[data-question-source]');
-  if(sourceButton){const entry=data.entries.find(e=>e.id===sourceButton.dataset.questionSource);closeDetail();activeCategory='all';$('#question-search').value='';$('#question-kind').value='all';renderQuestions();history.replaceState(null,'','#questions');const first=entry.questionIds[0];(first?$(`#${first}`):$('#questions'))?.scrollIntoView({block:'start'});}
+  if(sourceButton){const entry=data.entries.find(e=>e.id===sourceButton.dataset.questionSource);closeDetail();activeCategory='all';$('#question-search').value='';renderQuestions();history.replaceState(null,'','#questions');const first=entry.questionIds[0];(first?$(`#${first}`):$('#questions'))?.scrollIntoView({block:'start'});}
 });
 $('#global-search').addEventListener('input',renderSearch);
 $('#clear-search').addEventListener('click',()=>{$('#global-search').value='';renderSearch();$('#global-search').focus();});
 $('#question-search').addEventListener('input',renderQuestions);
-$('#question-kind').addEventListener('change',renderQuestions);
-$('#reset-filters').addEventListener('click',()=>{activeCategory='all';$('#question-search').value='';$('#question-kind').value='all';renderQuestions();});
+$('#reset-filters').addEventListener('click',()=>{activeCategory='all';$('#question-search').value='';renderQuestions();});
 $('#retry').addEventListener('click',()=>location.reload());
 document.addEventListener('keydown',event=>{if(event.key==='/'&&!dialog.open&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){event.preventDefault();$('#global-search').focus();}});
 window.addEventListener('hashchange',()=>{if(data&&location.hash.startsWith('#record-'))openEntry(location.hash.slice(8));});

@@ -29,7 +29,7 @@ test('board renders all five timeline stages and the renamed undefined record',(
 
 test('every record button opens its own detail and close returns focus',()=>{
   const buttons=[...window.document.querySelectorAll('[data-entry]')];
-  assert.ok(buttons.length>20);
+  assert.ok(buttons.length>=10);
   for(const button of buttons){
     const entry=story.entries.find(e=>e.id===button.dataset.entry);
     assert.ok(entry,`missing entry for button ${button.textContent}`);
@@ -55,13 +55,12 @@ test('global search displays actual related records, empty state and clears',()=
   assert.equal($('#global-search').value,'');
 });
 
-test('category, kind and text filters compose and reset restores all questions',()=>{
+test('category and text filters compose and reset restores all questions',()=>{
   $('[data-category="science"]').click();
   assert.ok([...window.document.querySelectorAll('.question-row')].every(row=>row.textContent.includes('科学')));
-  $('#question-kind').value='tension';
-  $('#question-kind').dispatchEvent(new window.Event('change'));
-  assert.ok(window.document.querySelectorAll('.question-row').length>0);
-  assert.ok([...window.document.querySelectorAll('.question-row')].every(row=>row.textContent.includes('逻辑张力')));
+  $('#question-search').value='脑机接口';
+  $('#question-search').dispatchEvent(new window.Event('input'));
+  assert.equal(window.document.querySelectorAll('.question-row').length,1);
   $('#question-search').value='no matching question';
   $('#question-search').dispatchEvent(new window.Event('input'));
   assert.match($('#question-list').textContent,/没有匹配的问题/);

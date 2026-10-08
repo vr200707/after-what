@@ -27,3 +27,9 @@ Research-archive working surface with dark graphite, cold white, restrained blue
 project、entries、questions、categories、statusDefinitions。entries 包含 type、status、sourceStatus、definitionState、blocks、claims、questionIds、tags。questions 可多分类及多来源。搜索包含正文、陈述和关联问题。统计条目状态、陈述状态、开放问题，绝不计算完成百分比。使用相对 URL 以适配 GitHub Pages 仓库路径。
 
 Project, entries, questions, categories, status definitions. Entries separate presentation blocks, claims, and question references. Multi-category/source questions. Search all text and linked questions. Count entry states, claim states, and open questions without inventing completion percentages. Relative URLs support repository-based GitHub Pages hosting.
+
+## 2026-10-08 内容精简 / Content reduction
+
+按用户要求，《以后呢》待定义部分的 15 个问题全部删除。全站只保留实际聊天中讨论过的 10 个核心问题，合并重复主题，删除提示词扩展和额外逻辑张力；每个问题记录来源聊天与原句。待定义区仅显示名称和待定义标签。
+
+At the user’s request, remove all 15 undefined-concept questions. Retain only 10 core questions from the actual discussion, merging repeated themes and removing expanded-brief questions and extra tensions. Store discussion provenance per question. The undefined section shows only its name and undefined status.
