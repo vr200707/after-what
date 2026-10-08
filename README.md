@@ -22,9 +22,9 @@ You may serve `site/` using any static HTTP server. Do not double-click the HTML
 
 ## 修改内容 / Edit content
 
-只需修改 `site/data/story.json`，然后提交到 GitHub。页面从数据自动生成条目、问题清单及统计。网站供团队共同查看；没有多人实时编辑、评论或自动保存讨论。
+只需修改 `site/data/story.json`，然后提交到 GitHub。页面从数据自动生成条目、问题清单及统计。网站供团队共同查看；支持当前浏览器的本地问题草稿编辑，不提供多人实时同步或评论。
 
-Edit `site/data/story.json`, then commit to GitHub. Entries, open questions, and statistics derive from this data. The board supports shared viewing, without realtime collaborative editing, comments, or automatic discussion storage.
+Edit `site/data/story.json`, then commit to GitHub. Entries, open questions, and statistics derive from this data. The board supports shared viewing and browser-local question drafts, without realtime collaborative synchronization or comments.
 
 - `project`：标题、核心设定、关键问题和方向总结。 / Title, core premise, key question, and story direction.
 - `entries`：时间节点、场景、概念、社会设想、待定义条目。 / Timeline stages, scenes, concepts, social possibilities, and undefined records.
@@ -96,3 +96,21 @@ Real-browser preview was blocked by an unavailable security check in this enviro
 用户新增“06 云端故土”，全部待确定；不添加设定陈述或问题清单。网站标题仍为《以后呢》。
 
 The user added “06 云端故土 / Cloud Homeland”, entirely undefined, with no claims or question list. The website remains titled 《以后呢》.
+
+## 网页编辑问题 / Edit questions in the website
+
+1. 打开网站的问题清单，点击“编辑问题清单”。
+2. 使用“新增问题”或每个问题旁的“修改”“删除”，选择分类及关联设定，然后保存到本地草稿。
+3. 草稿保存在当前浏览器的当前网站地址下。刷新仍会保留；换设备、换浏览器、换网址或清除网站数据后不会自动带过去。隐私模式也可能无法长期保存。
+4. 点击“导出更新文件”，下载 `story-update.json`。将文件交给 Codex，由 Codex核对后替换 `site/data/story.json` 并重新发布；团队随后刷新原网址查看公开更新。
+5. “退出编辑”只隐藏编辑按钮，仍显示你的草稿；“恢复公开版”会清除本地草稿并恢复已发布内容，需要先确认。
+
+1. Open the question list and select Edit questions.
+2. Add, modify, or delete a question; choose categories and optional linked records, then save the local draft.
+3. Drafts are stored for this website address in the current browser. Refresh preserves them; another device, browser, URL, or cleared website data does not. Private browsing may not retain drafts.
+4. Export `story-update.json` and give it to Codex. Codex reviews it, replaces `site/data/story.json`, and republishes; the team then refreshes the original URL.
+5. Exiting edit mode hides editing controls but keeps the draft visible. Restoring the public version clears the local draft after confirmation.
+
+不需要登录或新增后端。任何访问者都只能编辑自己浏览器里的草稿，不能通过页面修改其他人看到的公开版。导出文件包含完整故事数据和更新后的问题关联，不包含浏览器凭据。修改问题不会改写世界观或场景；云端故土与待定义部分不提供问题关联入口。若公开版的问题已更新，页面会提醒你核对旧草稿；导出不是发布。
+
+No login or new backend is required. Each visitor can edit only their browser-local draft, never the public version through this page. Export includes the complete story and updated question links, without browser credentials. Question editing does not rewrite worldbuilding or scenes. Undefined sections are excluded from question linking. If the published questions changed, the page flags the older draft for review. Exporting is not publishing.

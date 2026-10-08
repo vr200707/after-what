@@ -33,3 +33,9 @@ Project, entries, questions, categories, status definitions. Entries separate pr
 按用户要求，《以后呢》待定义部分的 15 个问题全部删除。全站只保留实际聊天中讨论过的 10 个核心问题，合并重复主题，删除提示词扩展和额外逻辑张力；每个问题记录来源聊天与原句。待定义区仅显示名称和待定义标签。
 
 At the user’s request, remove all 15 undefined-concept questions. Retain only 10 core questions from the actual discussion, merging repeated themes and removing expanded-brief questions and extra tensions. Store discussion provenance per question. The undefined section shows only its name and undefined status.
+
+## 本地问题编辑 / Local question editing
+
+用户确认网页内新增、修改、删除问题，浏览器草稿持久保存，导出完整 story-update.json 后由 Codex 发布。公开网站不接受共享写入。编辑仅更新问题与条目反向关联；云端故土和待定义区不关联问题。支持取消删除、确认恢复公开版、存储失败提示与公开版更新后的旧草稿提醒。
+
+The user approved browser-local question CRUD, persistent drafts, and full story-update.json export for later publication by Codex. No public shared writes. Only questions and backlinks change; undefined records are excluded. Include deletion cancellation, confirmed reset, storage failure messages, and stale-draft warnings.

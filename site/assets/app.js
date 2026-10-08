@@ -1,8 +1,19 @@
 import { computeStats, searchEntries, filterQuestions } from './model.js';
+import { DRAFT_KEY, upsertQuestion, removeQuestion, saveDraft, loadDraft, exportStory } from './editor.js';
 
 const $ = selector => document.querySelector(selector);
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let data;
+let publishedData;
+let baseSignature;
+let editMode = false;
+let hasDraft = false;
+let draftStale = false;
+let draftError = '';
+let editAction = 'add';
+let editId = null;
+let editorPreviousFocus;
+const editorDialog = document.querySelector('#editor-dialog');
 let activeCategory = 'all';
 let previousFocus;
 const typeLabels = {timeline:'时间阶段',scene:'关键场景',concept:'核心概念',society:'社会设想',undefined:'待定义概念'};
@@ -83,7 +94,7 @@ function renderQuestions() {
   $('#category-filters').innerHTML=[{id:'all',zh:'全部',en:'All'},...data.categories.filter(c=>data.questions.some(q=>q.categoryIds.includes(c.id)))].map(c=>`<button class="filter-chip ${c.id===activeCategory?'active':''}" data-category="${c.id}" aria-pressed="${c.id===activeCategory}">${escape(c.zh)}<span>${escape(c.en)}</span></button>`).join('');
   $('#question-count').textContent=`显示 ${filtered.length} / ${data.questions.length} 个问题`;
   $('#reset-filters').hidden=activeCategory==='all'&&!query;
-  $('#question-list').innerHTML=filtered.length?filtered.map(q=>`<article class="question-row" id="${q.id}"><div class="question-text">${q.kind==='tension'?'<span class="tension-label">逻辑张力 / Tension</span>':''}<p>${escape(q.text)}</p><div class="question-categories">${q.categoryIds.map(id=>{const c=data.categories.find(c=>c.id===id);return `<span>${escape(c?.zh||id)}</span>`;}).join('')}</div></div><div class="question-sources">${q.relatedEntryIds.map(id=>{const e=data.entries.find(e=>e.id===id);return `<button data-entry="${id}" class="source-link">${escape(e.title)}</button>`;}).join('')||'<span class="narrative-source">叙事待定</span>'}<span class="open-word">待讨论</span></div></article>`).join(''):'<div class="empty-state"><h3>没有匹配的问题</h3><p>试试其他关键词，或重置筛选。</p></div>';
+  $('#question-list').innerHTML=filtered.length?filtered.map(q=>`<article class="question-row" id="${q.id}"><div class="question-text">${q.kind==='tension'?'<span class="tension-label">逻辑张力 / Tension</span>':''}<p>${escape(q.text)}</p><div class="question-categories">${q.categoryIds.map(id=>{const c=data.categories.find(c=>c.id===id);return `<span>${escape(c?.zh||id)}</span>`;}).join('')}</div></div><div class="question-sources">${q.relatedEntryIds.map(id=>{const e=data.entries.find(e=>e.id===id);return `<button data-entry="${id}" class="source-link">${escape(e.title)}</button>`;}).join('')||'<span class="narrative-source">叙事待定</span>'}<span class="open-word">待讨论</span>${editMode ? `<div class="question-edit-actions"><button class="text-button" data-edit-question="${escape(q.id)}">修改</button><button class="text-button delete-button" data-delete-question="${escape(q.id)}">删除</button></div>` : ''}</div></article>`).join(''):'<div class="empty-state"><h3>没有匹配的问题</h3><p>试试其他关键词，或重置筛选。</p></div>';
 }
 
 function renderSearch() {
@@ -96,6 +107,10 @@ function renderSearch() {
 }
 
 document.addEventListener('click',event=>{
+  const editButton=event.target.closest('[data-edit-question]');
+  if(editButton&&editMode)openQuestionEditor('edit',editButton.dataset.editQuestion);
+  const deleteButton=event.target.closest('[data-delete-question]');
+  if(deleteButton&&editMode)openQuestionEditor('delete',deleteButton.dataset.deleteQuestion);
   const entryButton=event.target.closest('[data-entry]');
   if(entryButton&&data)openEntry(entryButton.dataset.entry,{updateHash:true});
   const categoryButton=event.target.closest('[data-category]');
@@ -108,14 +123,95 @@ $('#clear-search').addEventListener('click',()=>{$('#global-search').value='';re
 $('#question-search').addEventListener('input',renderQuestions);
 $('#reset-filters').addEventListener('click',()=>{activeCategory='all';$('#question-search').value='';renderQuestions();});
 $('#retry').addEventListener('click',()=>location.reload());
-document.addEventListener('keydown',event=>{if(event.key==='/'&&!dialog.open&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){event.preventDefault();$('#global-search').focus();}});
+document.addEventListener('keydown',event=>{if(event.key==='/'&&!dialog.open&&!editorDialog.open&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){event.preventDefault();$('#global-search').focus();}});
 window.addEventListener('hashchange',()=>{if(data&&location.hash.startsWith('#record-'))openEntry(location.hash.slice(8));});
+
+function updateEditorStatus() {
+  $('#toggle-editor').textContent=editMode?'退出编辑':'编辑问题清单';
+  $('#toggle-editor').setAttribute('aria-pressed',String(editMode));
+  $('#editor-actions').hidden=!editMode;
+  $('#editor-note').hidden=!editMode;
+  $('#draft-status').textContent=draftError ? `草稿未能保存或读取：${draftError}。请导出备份。` :
+    draftStale ? '正在查看本地草稿；公开版已更新，请核对后再导出。' :
+    hasDraft ? '本地草稿已保存 · 尚未发布' : '正在查看公开版';
+}
+
+function refreshQuestionViews() {
+  renderStats();renderTimeline();renderContent();renderQuestions();renderSearch();updateEditorStatus();
+}
+
+function persistQuestions(next) {
+  data=next;hasDraft=true;
+  try { saveDraft(window.localStorage,baseSignature,data);draftError=''; }
+  catch { draftError='当前浏览器不允许保存，修改仅保留在本页'; }
+  activeCategory='all';$('#question-search').value='';
+  refreshQuestionViews();
+}
+
+function openQuestionEditor(action,id=null) {
+  editAction=action;editId=id;editorPreviousFocus=document.activeElement;
+  const q=id?data.questions.find(q=>q.id===id):null;
+  if(id&&!q)return;
+  $('#edit-error').hidden=true;
+  const confirm=action==='delete'||action==='restore';
+  $('#question-fields').hidden=confirm;
+  $('#editor-confirm-text').hidden=!confirm;
+  $('#editor-title').textContent={add:'新增问题',edit:'修改问题',delete:'删除这个问题？',restore:'恢复公开版？'}[action];
+  $('#save-question').textContent=action==='delete'?'确认删除':action==='restore'?'确认恢复':'保存到本地草稿';
+  $('#editor-confirm-text').textContent=action==='delete'?`将从本地草稿中删除：“${q.text}”。公开网站不会因此改变。`:
+    '这会清除当前浏览器里的问题草稿，恢复网站已发布的清单。需要保留修改时，请先取消并导出更新文件。';
+  if(!confirm){
+    $('#question-text').value=q?.text||'';
+    $('#edit-categories').innerHTML=data.categories.filter(c=>c.id!=='after-what').map(c=>`<label><input type="checkbox" value="${escape(c.id)}" ${q?.categoryIds.includes(c.id)?'checked':''}>${escape(c.zh)} <small>${escape(c.en)}</small></label>`).join('');
+    $('#edit-entries').innerHTML=data.entries.filter(e=>e.showQuestions!==false&&e.type!=='undefined').map(e=>`<label><input type="checkbox" value="${escape(e.id)}" ${q?.relatedEntryIds.includes(e.id)?'checked':''}>${escape(e.title)}</label>`).join('');
+  }
+  editorDialog.showModal();
+  (confirm?$('#cancel-editor'):$('#question-text')).focus();
+}
+
+$('#toggle-editor').addEventListener('click',()=>{editMode=!editMode;updateEditorStatus();renderQuestions();});
+$('#add-question').addEventListener('click',()=>openQuestionEditor('add'));
+$('#restore-published').addEventListener('click',()=>openQuestionEditor('restore'));
+$('#cancel-editor').addEventListener('click',()=>editorDialog.close());
+$('#cancel-editor-top').addEventListener('click',()=>editorDialog.close());
+editorDialog.addEventListener('close',()=>{if(editorPreviousFocus?.isConnected)editorPreviousFocus.focus();else $('#toggle-editor').focus();});
+$('#question-form').addEventListener('submit',event=>{
+  event.preventDefault();
+  try {
+    if(editAction==='restore'){
+      window.localStorage.removeItem(DRAFT_KEY);data=structuredClone(publishedData);hasDraft=false;draftStale=false;draftError='';
+      activeCategory='all';$('#question-search').value='';refreshQuestionViews();
+    } else if(editAction==='delete')persistQuestions(removeQuestion(data,editId));
+    else {
+      const input={text:$('#question-text').value,
+        categoryIds:[...document.querySelectorAll('#edit-categories input:checked')].map(i=>i.value),
+        relatedEntryIds:[...document.querySelectorAll('#edit-entries input:checked')].map(i=>i.value)};
+      persistQuestions(upsertQuestion(data,input,editAction==='edit'?editId:null));
+    }
+    editorDialog.close();
+  } catch(error){$('#edit-error').textContent=error.message;$('#edit-error').hidden=false;}
+});
+$('#export-draft').addEventListener('click',()=>{
+  try {
+    const blob=new Blob([exportStory(data)],{type:'application/json;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const link=document.createElement('a');link.href=url;link.download='story-update.json';
+    document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    $('#draft-status').textContent='已导出 story-update.json · 将文件交给 Codex 发布即可同步给其他人';
+  } catch(error){$('#draft-status').textContent=`导出失败：${error.message}`;}
+});
 
 async function initialize() {
   try {
     const response=await fetch(new URL('../data/story.json',import.meta.url));
     if(!response.ok)throw new Error(`Story data HTTP ${response.status}`);
-    data=await response.json();
+    publishedData=await response.json();
+    baseSignature=JSON.stringify(publishedData.questions);
+    let draft;
+    try { draft=loadDraft(publishedData,window.localStorage); }
+    catch { draft={data:structuredClone(publishedData),hasDraft:false,stale:false,error:'浏览器不允许读取本地存储'}; }
+    data=draft.data;hasDraft=draft.hasDraft;draftStale=draft.stale;draftError=draft.error||'';
+    updateEditorStatus();
     document.title=`${data.project.title} · 故事开发面板`;
     $('#core-statement').textContent=data.project.coreStatement;
     $('#core-description').textContent=data.project.coreDescription;

@@ -34,7 +34,8 @@
       <section id="concepts" class="section-anchor"><div class="section-heading"><div><h2>核心概念 <span>Concepts</span></h2><p>感情、欲望与理性，分别指向什么？</p></div></div><div id="concept-cards" class="concept-grid"></div></section>
       <section id="society" class="section-anchor"><div class="section-heading"><div><h2>后续社会设想 <span>Society</span></h2><p>以下为可能的发展方向，时间与因果关系保持开放。</p></div></div><div id="society-cards" class="society-grid"></div></section>
       <section id="after-what" class="section-anchor"><div id="undefined-card"></div></section>
-      <section id="questions" class="section-anchor questions-section"><div class="section-heading"><div><h2>问题清单 <span>Open questions</span></h2><p>只记录“故事线讨论chat”里聊过的核心问题，相近提问已合并。</p></div><span id="question-total" class="subtle-label"></span></div>
+      <section id="questions" class="section-anchor questions-section"><div class="section-heading"><div><h2>问题清单 <span>Open questions</span></h2><p>公开版保留已讨论的核心问题；编辑模式可维护你自己的问题草稿。</p></div><span id="question-total" class="subtle-label"></span></div>
+        <div class="editor-bar"><div><button id="toggle-editor" class="outline-button" aria-pressed="false">编辑问题清单</button><span id="draft-status" role="status" aria-live="polite">正在查看公开版</span></div><div id="editor-actions" hidden><button id="add-question" class="outline-button">新增问题</button><button id="export-draft" class="outline-button">导出更新文件</button><button id="restore-published" class="text-button">恢复公开版</button></div><p id="editor-note" hidden>修改仅保存在当前浏览器。导出更新文件交给 Codex 发布后，其他人刷新原网址才能看到。</p></div>
         <div class="question-toolbar"><div id="category-filters" class="filter-list" role="group" aria-label="按问题类别筛选"></div><div class="question-controls"><label class="question-search"><span class="sr-only">搜索问题</span><input id="question-search" type="search" placeholder="在问题中搜索…"></label></div></div>
         <div class="question-list-meta"><span id="question-count" aria-live="polite"></span><button id="reset-filters" class="text-button" hidden>重置筛选</button></div><div id="question-list" class="question-list"></div>
       </section>
@@ -43,6 +44,7 @@
     </div>
   </main>
   <dialog id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-top"><span>设定详情 / Record details</span><button id="close-dialog" class="close-button" aria-label="关闭详情">×</button></div><div id="detail-content"></div></dialog>
+  <dialog id="editor-dialog" aria-labelledby="editor-title"><form id="question-form"><div class="dialog-top"><h2 id="editor-title">新增问题</h2><button id="cancel-editor-top" class="close-button" type="button" aria-label="关闭编辑">×</button></div><div class="editor-form-body"><p id="editor-confirm-text" hidden></p><div id="question-fields"><label class="field-label" for="question-text">问题内容</label><textarea id="question-text" maxlength="2000" rows="4" placeholder="写下你想讨论的问题…"></textarea><fieldset><legend>分类（至少选择一个）</legend><div id="edit-categories" class="checkbox-grid"></div></fieldset><fieldset><legend>关联设定（可不选）</legend><div id="edit-entries" class="checkbox-grid"></div><small>云端故土与待定义部分不关联问题。</small></fieldset></div><p id="edit-error" class="edit-error" role="alert" hidden></p><div class="form-actions"><button id="save-question" class="outline-button" type="submit">保存到本地草稿</button><button id="cancel-editor" class="text-button" type="button">取消</button></div><small>保存草稿不会更新其他人看到的公开网站。</small></div></form></dialog>
   <noscript><div class="error-state">此故事面板需要启用 JavaScript，以读取设定和筛选问题。</div></noscript>
 </body>
 </html>

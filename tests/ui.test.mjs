@@ -80,3 +80,35 @@ test('renamed concept opens from a shareable record anchor',()=>{
   assert.match($('#detail-content').textContent,/待定义/);
   $('#close-dialog').click();
 });
+
+test('editor supports create, modify, cancel deletion, delete, and restoring the public list',()=>{
+  $('#toggle-editor').click();
+  assert.equal($('#editor-actions').hidden,false);
+  $('#add-question').click();
+  assert.equal($('#editor-dialog').open,true);
+  $('#question-text').value='本地新增的问题？';
+  $('#edit-categories input[value="science"]').checked=true;
+  $('#edit-entries input[value="knowledge"]').checked=true;
+  $('#question-form').dispatchEvent(new window.Event('submit',{cancelable:true}));
+  assert.equal($('#editor-dialog').open,false);
+  assert.equal(window.document.querySelectorAll('.question-row').length,story.questions.length+1);
+  assert.match($('#draft-status').textContent,/草稿/);
+  assert.ok(window.localStorage.getItem('after-what.question-draft.v1'));
+  const row=window.document.querySelector('.question-row:last-child');
+  row.querySelector('[data-edit-question]').click();
+  $('#question-text').value='修改后的本地问题？';
+  $('#question-form').dispatchEvent(new window.Event('submit',{cancelable:true}));
+  assert.match($('#question-list').textContent,/修改后的本地问题/);
+  window.document.querySelector('.question-row:last-child [data-delete-question]').click();
+  $('#cancel-editor').click();
+  assert.equal(window.document.querySelectorAll('.question-row').length,story.questions.length+1);
+  window.document.querySelector('.question-row:last-child [data-delete-question]').click();
+  $('#question-form').dispatchEvent(new window.Event('submit',{cancelable:true}));
+  assert.equal(window.document.querySelectorAll('.question-row').length,story.questions.length);
+  assert.equal(window.document.querySelectorAll('[data-entry="cloud-homeland"]').length,1);
+  $('#restore-published').click();
+  $('#question-form').dispatchEvent(new window.Event('submit',{cancelable:true}));
+  assert.equal(window.localStorage.getItem('after-what.question-draft.v1'),null);
+  assert.equal(window.document.querySelectorAll('.question-row').length,story.questions.length);
+  assert.match($('#draft-status').textContent,/公开版/);
+});
