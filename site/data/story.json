@@ -1,0 +1,1714 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "title": "以后呢",
+    "subtitle": "Story & Worldbuilding Development Board",
+    "coreStatement": "“智能人”不是没有感情，而是无法停止理解感情。",
+    "coreDescription": "智能人仍然保留欲望、羡慕、快乐、痛苦等人类感受，但任何情感一旦产生，庞大的知识系统都会立即拆解它的神经机制、进化来源和行为意义。",
+    "keyQuestion": "知道欲望的来源，会不会削弱欲望本身？",
+    "directionSummary": "当人类不断追求知识、效率和理性，并最终能够理解自身的一切机制时，人类是否还能够像过去一样生活、爱、渴望和快乐？",
+    "directionNote": "当前故事方向总结，并非最终价值升华。",
+    "sharingNote": "团队共享查看；内容修改后重新发布。"
+  },
+  "statusDefinitions": {
+    "confirmed": {
+      "zh": "已确定",
+      "en": "Confirmed"
+    },
+    "tentative": {
+      "zh": "暂定",
+      "en": "Tentative"
+    },
+    "open": {
+      "zh": "待讨论",
+      "en": "Open"
+    }
+  },
+  "categories": [
+    {
+      "id": "science",
+      "zh": "科学",
+      "en": "Science"
+    },
+    {
+      "id": "smart-humans",
+      "zh": "智能人",
+      "en": "Smart Humans"
+    },
+    {
+      "id": "philosophy",
+      "zh": "哲学",
+      "en": "Philosophy"
+    },
+    {
+      "id": "character",
+      "zh": "人物",
+      "en": "Character"
+    },
+    {
+      "id": "society",
+      "zh": "社会",
+      "en": "Society"
+    },
+    {
+      "id": "after-what",
+      "zh": "以后呢",
+      "en": "After What"
+    },
+    {
+      "id": "narrative",
+      "zh": "叙事",
+      "en": "Narrative"
+    }
+  ],
+  "entries": [
+    {
+      "id": "knowledge",
+      "title": "人类追寻知识",
+      "titleEn": "Pursuit of knowledge",
+      "type": "timeline",
+      "status": "tentative",
+      "background": "人类一直在不断延展认知边界，希望理解宇宙的一切奥秘。",
+      "claims": [
+        {
+          "id": "knowledge-c1",
+          "text": "这是整个故事的起点。",
+          "status": "confirmed",
+          "qualification": ""
+        }
+      ],
+      "blocks": [],
+      "questionIds": [
+        "q-001",
+        "q-002"
+      ],
+      "tags": [
+        "认知",
+        "宇宙",
+        "起点"
+      ],
+      "order": 1
+    },
+    {
+      "id": "sun-information",
+      "title": "太阳中的信息",
+      "titleEn": "Information in sunlight",
+      "type": "timeline",
+      "status": "tentative",
+      "background": "人类发现太阳光中存在远超正常天体辐射的信息结构。",
+      "claims": [],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "当前想法：这些信息可能来源于某个高维文明对太阳光的主动改造或编码。"
+        }
+      ],
+      "questionIds": [
+        "q-003",
+        "q-004",
+        "q-005",
+        "q-006",
+        "q-007",
+        "q-050",
+        "q-051",
+        "q-052",
+        "q-053",
+        "q-081"
+      ],
+      "tags": [
+        "太阳光",
+        "高维文明",
+        "信息"
+      ],
+      "order": 2
+    },
+    {
+      "id": "brain-interface",
+      "title": "脑机接口与知识直连",
+      "titleEn": "Direct neural knowledge",
+      "type": "timeline",
+      "status": "open",
+      "background": "人类试图绕过传统学习，通过技术直接把太阳光中的信息输入人脑。",
+      "claims": [],
+      "blocks": [
+        {
+          "type": "flow",
+          "title": "目标链路",
+          "items": [
+            "太阳光",
+            "信息解析",
+            "神经编码",
+            "脑机接口",
+            "人脑获得知识"
+          ]
+        },
+        {
+          "type": "emphasis",
+          "text": "这一部分目前科学基础不够扎实，需要未来补充尽可能有物理与神经科学依据的解释。"
+        }
+      ],
+      "questionIds": [
+        "q-008",
+        "q-009",
+        "q-010",
+        "q-011",
+        "q-012",
+        "q-050",
+        "q-051",
+        "q-052",
+        "q-053",
+        "q-078"
+      ],
+      "tags": [
+        "脑机接口",
+        "神经编码",
+        "知识"
+      ],
+      "order": 3
+    },
+    {
+      "id": "divergence",
+      "title": "人类分化",
+      "titleEn": "Human divergence",
+      "type": "timeline",
+      "status": "tentative",
+      "background": "大量人开始接受太阳知识。",
+      "claims": [],
+      "blocks": [
+        {
+          "type": "list",
+          "title": "结果出现不同群体",
+          "items": [
+            "部分脑死亡",
+            "部分精神崩溃",
+            "部分成功承受知识"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "其中成功承受并发生认知变化的人，被称为：智能人。"
+        }
+      ],
+      "questionIds": [
+        "q-013",
+        "q-014",
+        "q-015",
+        "q-016",
+        "q-064",
+        "q-065",
+        "q-066",
+        "q-067"
+      ],
+      "tags": [
+        "太阳知识",
+        "分化",
+        "智能人"
+      ],
+      "order": 4
+    },
+    {
+      "id": "smart-humans",
+      "title": "智能人",
+      "titleEn": "Smart humans",
+      "type": "timeline",
+      "status": "confirmed",
+      "background": "这是目前最重要的核心设定之一。",
+      "claims": [
+        {
+          "id": "smart-humans-c1",
+          "text": "仍然是生物意义上的人，有肉体。",
+          "status": "confirmed",
+          "qualification": ""
+        },
+        {
+          "id": "smart-humans-c2",
+          "text": "需要睡眠、进食，会疲劳，有生理限制。",
+          "status": "confirmed",
+          "qualification": ""
+        },
+        {
+          "id": "smart-humans-c3",
+          "text": "拥有极强认知能力，大脑运算和知识调用速度极快。",
+          "status": "confirmed",
+          "qualification": ""
+        },
+        {
+          "id": "smart-humans-c4",
+          "text": "并没有彻底失去感情。",
+          "status": "confirmed",
+          "qualification": ""
+        },
+        {
+          "id": "smart-humans-c5",
+          "text": "任何感情出现后，都会立刻被知识系统自动拆解。",
+          "status": "confirmed",
+          "qualification": "方向已确定；主动/自动机制仍列为待讨论"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "emphasis",
+          "text": "情绪存在，但已经无法保持未经分析的纯粹状态。"
+        },
+        {
+          "type": "paragraph",
+          "text": "例如：他产生“羡慕”。下一秒，大脑就会自动解释："
+        },
+        {
+          "type": "list",
+          "title": "关于羡慕的分析",
+          "items": [
+            "羡慕来自什么神经回路",
+            "进化意义是什么",
+            "为什么会产生社会比较",
+            "哪些激素或脑区参与其中"
+          ]
+        }
+      ],
+      "questionIds": [
+        "q-017",
+        "q-018",
+        "q-019",
+        "q-020",
+        "q-054",
+        "q-055",
+        "q-056",
+        "q-057",
+        "q-058",
+        "q-077",
+        "q-080",
+        "q-081",
+        "q-082"
+      ],
+      "tags": [
+        "情感",
+        "羡慕",
+        "知识系统",
+        "生理限制"
+      ],
+      "order": 5,
+      "sourceStatus": "已确定方向",
+      "summary": "仍然是人。情绪仍然存在。却无法保持未经分析的纯粹状态。",
+      "summaryNote": "认知能力极强，知识调用极快；主动与自动机制仍待讨论。"
+    },
+    {
+      "id": "dog-bone",
+      "title": "狗和骨头",
+      "titleEn": "DOG & BONE",
+      "type": "scene",
+      "status": "open",
+      "background": "一条狗得到了一根骨头。狗非常开心。智能人站在旁边看着它。",
+      "claims": [],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "他突然产生一种情绪：羡慕。"
+        },
+        {
+          "type": "list",
+          "title": "然后他的脑中立刻自动出现关于“羡慕”的完整解释",
+          "items": [
+            "奖赏系统",
+            "社会比较",
+            "神经递质",
+            "进化机制",
+            "情绪来源"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "智能人感到厌烦：“为什么我又想到这些？”"
+        },
+        {
+          "type": "paragraph",
+          "text": "紧接着他又开始思考：“我为什么会羡慕一条狗？”"
+        },
+        {
+          "type": "paragraph",
+          "text": "他进一步想到：“它甚至不知道数学、物理、化学。”"
+        },
+        {
+          "type": "paragraph",
+          "text": "“它的快乐只是某种低级的奖赏反应。”"
+        },
+        {
+          "type": "emphasis",
+          "text": "但是：他仍然站在那里，看着那条狗。"
+        }
+      ],
+      "questionIds": [
+        "q-077",
+        "q-083"
+      ],
+      "tags": [
+        "狗",
+        "骨头",
+        "快乐",
+        "羡慕"
+      ],
+      "sourceStatus": "原文未指定状态",
+      "note": "视觉化故事节点；保留原有片段，未扩写为完整剧本。场景的时间位置未确定。"
+    },
+    {
+      "id": "desire",
+      "title": "欲望",
+      "titleEn": "Desire",
+      "type": "concept",
+      "status": "confirmed",
+      "background": "智能人仍然会有欲望，因为他们仍然是人类。",
+      "claims": [
+        {
+          "id": "desire-c1",
+          "text": "智能人仍然会有欲望。",
+          "status": "confirmed",
+          "qualification": ""
+        },
+        {
+          "id": "desire-c2",
+          "text": "欲望还存在，但他完全理解欲望来自哪里。",
+          "status": "confirmed",
+          "qualification": ""
+        }
+      ],
+      "blocks": [
+        {
+          "type": "list",
+          "title": "可能存在 · 生理欲望",
+          "items": [
+            "食欲",
+            "性欲",
+            "睡眠",
+            "生存",
+            "避免疼痛"
+          ]
+        },
+        {
+          "type": "list",
+          "title": "可能存在 · 奖赏欲望",
+          "items": [
+            "快乐",
+            "娱乐",
+            "舒适",
+            "新鲜刺激"
+          ]
+        },
+        {
+          "type": "list",
+          "title": "可能存在 · 社会欲望",
+          "items": [
+            "金钱",
+            "权力",
+            "地位",
+            "认可",
+            "优越感",
+            "归属感"
+          ]
+        },
+        {
+          "type": "list",
+          "title": "可能存在 · 情感欲望",
+          "items": [
+            "爱",
+            "被爱",
+            "友情",
+            "陪伴",
+            "家庭"
+          ]
+        },
+        {
+          "type": "list",
+          "title": "可能存在 · 自我实现",
+          "items": [
+            "成就",
+            "创造",
+            "探索",
+            "理解世界",
+            "留下痕迹"
+          ]
+        },
+        {
+          "type": "flow",
+          "title": "关于权力的思考",
+          "items": [
+            "我想获得权力。",
+            "权力带来资源控制。",
+            "资源控制产生安全感。",
+            "安全感来自进化过程中对稀缺性的适应。",
+            "所以我的欲望只是一套生物算法？"
+          ]
+        },
+        {
+          "type": "emphasis",
+          "text": "知道欲望的来源，会不会削弱欲望本身？"
+        }
+      ],
+      "questionIds": [
+        "q-021",
+        "q-054",
+        "q-055",
+        "q-056",
+        "q-057",
+        "q-058",
+        "q-059",
+        "q-060",
+        "q-061",
+        "q-062",
+        "q-063"
+      ],
+      "tags": [
+        "欲望",
+        "权力",
+        "情感",
+        "生物算法"
+      ],
+      "sourceStatus": "当前结论；具体欲望类别仅为可能"
+    },
+    {
+      "id": "optimal",
+      "title": "最优解问题",
+      "titleEn": "Philosophy / Logic",
+      "type": "concept",
+      "status": "tentative",
+      "background": "如果智能人完全理性，那么什么叫“最优”？",
+      "claims": [],
+      "blocks": [
+        {
+          "type": "emphasis",
+          "text": "理性只能优化目标，不能自动产生目标。"
+        },
+        {
+          "type": "paragraph",
+          "text": "例如：如果目标是赚钱，理性可以计算最优赚钱路径。但：为什么要赚钱？"
+        },
+        {
+          "type": "paragraph",
+          "text": "目标本身仍然来自欲望、价值观或者情感。"
+        },
+        {
+          "type": "flow",
+          "title": "逻辑关系",
+          "items": [
+            "欲望 / 价值",
+            "目标",
+            "理性计算",
+            "最优方案"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "而不是：理性 → 自动产生人生意义。"
+        },
+        {
+          "type": "paragraph",
+          "text": "这个问题也是未来剧本的重要哲学基础。"
+        }
+      ],
+      "questionIds": [
+        "q-022",
+        "q-023",
+        "q-059",
+        "q-060",
+        "q-061",
+        "q-062",
+        "q-063",
+        "q-080",
+        "q-082"
+      ],
+      "tags": [
+        "理性",
+        "最优",
+        "目标",
+        "人生意义"
+      ],
+      "sourceStatus": "哲学讨论；原文未指定条目状态",
+      "summaryNote": "“完全理性”目前是讨论中的条件，其设定地位保持开放。"
+    },
+    {
+      "id": "night-society",
+      "title": "背光社会",
+      "titleEn": "Life beyond sunlight",
+      "type": "society",
+      "status": "open",
+      "background": "后续一部分人开始拒绝太阳知识。",
+      "claims": [],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "当前想法：他们试图始终生活在地球的背光面。"
+        },
+        {
+          "type": "list",
+          "title": "可能通过以下方式不断跟随夜晚移动",
+          "items": [
+            "地下通道",
+            "移动城市",
+            "全球地下交通系统"
+          ]
+        },
+        {
+          "type": "emphasis",
+          "text": "这只是目前的设想。"
+        }
+      ],
+      "questionIds": [
+        "q-024",
+        "q-025",
+        "q-026",
+        "q-027",
+        "q-028",
+        "q-029",
+        "q-030",
+        "q-031",
+        "q-064",
+        "q-065",
+        "q-066",
+        "q-067",
+        "q-078",
+        "q-079",
+        "q-083"
+      ],
+      "tags": [
+        "太阳",
+        "背光",
+        "地下",
+        "能源",
+        "夜晚"
+      ]
+    },
+    {
+      "id": "two-humanities",
+      "title": "两种人类",
+      "titleEn": "Two human groups",
+      "type": "society",
+      "status": "open",
+      "background": "未来可能形成两个群体。",
+      "claims": [
+        {
+          "id": "two-humanities-c1",
+          "text": "这两个群体可能产生冲突。",
+          "status": "tentative",
+          "qualification": "只确定冲突的可能性；原因、形式未确定"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "list",
+          "title": "可能形成的群体",
+          "items": [
+            "智能人：接受太阳知识。",
+            "传统人类：拒绝太阳知识。"
+          ]
+        },
+        {
+          "type": "emphasis",
+          "text": "冲突的原因与形式保持开放，未确定战争剧情。"
+        }
+      ],
+      "questionIds": [
+        "q-032",
+        "q-033",
+        "q-034",
+        "q-035",
+        "q-036",
+        "q-037",
+        "q-038",
+        "q-039",
+        "q-064",
+        "q-065",
+        "q-066",
+        "q-067",
+        "q-083"
+      ],
+      "tags": [
+        "智能人",
+        "传统人类",
+        "冲突",
+        "文明"
+      ]
+    },
+    {
+      "id": "after-what",
+      "title": "以后呢",
+      "titleEn": "After What",
+      "type": "undefined",
+      "status": "open",
+      "background": "目前只确定名字：以后呢。",
+      "claims": [],
+      "blocks": [
+        {
+          "type": "emphasis",
+          "text": "UNDEFINED / 待定义"
+        },
+        {
+          "type": "paragraph",
+          "text": "定义及其与故事结局的关系尚未确定。"
+        }
+      ],
+      "questionIds": [
+        "q-040",
+        "q-041",
+        "q-042",
+        "q-043",
+        "q-044",
+        "q-045",
+        "q-046",
+        "q-047",
+        "q-048",
+        "q-049",
+        "q-068",
+        "q-069",
+        "q-070",
+        "q-071",
+        "q-072"
+      ],
+      "tags": [
+        "以后呢",
+        "待定义",
+        "结局"
+      ],
+      "definitionState": "undefined",
+      "sourceStatus": "待讨论 / 待定义"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-001",
+      "text": "这个时代的科技发展到什么程度？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "knowledge"
+      ]
+    },
+    {
+      "id": "q-002",
+      "text": "人类为什么恰好在这个时代发现太阳中的异常信息？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "knowledge"
+      ]
+    },
+    {
+      "id": "q-003",
+      "text": "信息到底是什么？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "sun-information"
+      ]
+    },
+    {
+      "id": "q-004",
+      "text": "是科学知识还是宇宙底层规律？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "sun-information"
+      ]
+    },
+    {
+      "id": "q-005",
+      "text": "是有限信息还是持续存在的信息流？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "sun-information"
+      ]
+    },
+    {
+      "id": "q-006",
+      "text": "高维文明为什么把信息放进太阳光？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "sun-information"
+      ]
+    },
+    {
+      "id": "q-007",
+      "text": "这是主动传递还是某种遗迹？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "sun-information"
+      ]
+    },
+    {
+      "id": "q-008",
+      "text": "太阳光如何承载高密度信息？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "brain-interface"
+      ]
+    },
+    {
+      "id": "q-009",
+      "text": "信息如何被解析？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "brain-interface"
+      ]
+    },
+    {
+      "id": "q-010",
+      "text": "神经接口怎样把知识转化为大脑可以理解的神经结构？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "brain-interface"
+      ]
+    },
+    {
+      "id": "q-011",
+      "text": "大脑如何承受这种信息输入？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "brain-interface"
+      ]
+    },
+    {
+      "id": "q-012",
+      "text": "为什么有些人承受不了？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "brain-interface"
+      ]
+    },
+    {
+      "id": "q-013",
+      "text": "这是一次性的实验事故还是长期社会现象？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans",
+        "society"
+      ],
+      "relatedEntryIds": [
+        "divergence"
+      ]
+    },
+    {
+      "id": "q-014",
+      "text": "智能人的数量是多少？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans",
+        "society"
+      ],
+      "relatedEntryIds": [
+        "divergence"
+      ]
+    },
+    {
+      "id": "q-015",
+      "text": "普通人是否还会继续接受？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans",
+        "society"
+      ],
+      "relatedEntryIds": [
+        "divergence"
+      ]
+    },
+    {
+      "id": "q-016",
+      "text": "政府和社会如何处理？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans",
+        "society"
+      ],
+      "relatedEntryIds": [
+        "divergence"
+      ]
+    },
+    {
+      "id": "q-017",
+      "text": "这种分析是主动的吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans",
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "smart-humans"
+      ]
+    },
+    {
+      "id": "q-018",
+      "text": "还是像反射一样自动发生？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans",
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "smart-humans"
+      ]
+    },
+    {
+      "id": "q-019",
+      "text": "知道感情来源后，感情会不会逐渐削弱？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans",
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "smart-humans"
+      ]
+    },
+    {
+      "id": "q-020",
+      "text": "智能人是否还能真正“沉浸”在情绪里？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans",
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "smart-humans"
+      ]
+    },
+    {
+      "id": "q-021",
+      "text": "知道欲望的来源，会不会削弱欲望本身？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans",
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "desire"
+      ]
+    },
+    {
+      "id": "q-022",
+      "text": "如果智能人完全理性，那么什么叫“最优”？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "optimal"
+      ]
+    },
+    {
+      "id": "q-023",
+      "text": "为什么要赚钱？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "optimal"
+      ]
+    },
+    {
+      "id": "q-024",
+      "text": "为什么必须避开太阳？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society",
+        "science"
+      ],
+      "relatedEntryIds": [
+        "night-society"
+      ]
+    },
+    {
+      "id": "q-025",
+      "text": "普通遮阳为什么不够？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society",
+        "science"
+      ],
+      "relatedEntryIds": [
+        "night-society"
+      ]
+    },
+    {
+      "id": "q-026",
+      "text": "太阳信息通过什么方式影响人？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society",
+        "science"
+      ],
+      "relatedEntryIds": [
+        "night-society"
+      ]
+    },
+    {
+      "id": "q-027",
+      "text": "他们为什么不能永久生活在普通地下城市？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society",
+        "science"
+      ],
+      "relatedEntryIds": [
+        "night-society"
+      ]
+    },
+    {
+      "id": "q-028",
+      "text": "背光社会如何获得能源？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society",
+        "science"
+      ],
+      "relatedEntryIds": [
+        "night-society"
+      ]
+    },
+    {
+      "id": "q-029",
+      "text": "如何农业？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society",
+        "science"
+      ],
+      "relatedEntryIds": [
+        "night-society"
+      ]
+    },
+    {
+      "id": "q-030",
+      "text": "如何运输？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society",
+        "science"
+      ],
+      "relatedEntryIds": [
+        "night-society"
+      ]
+    },
+    {
+      "id": "q-031",
+      "text": "如何跟随地球自转？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society",
+        "science"
+      ],
+      "relatedEntryIds": [
+        "night-society"
+      ]
+    },
+    {
+      "id": "q-032",
+      "text": "两边为什么冲突？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-033",
+      "text": "是资源冲突？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-034",
+      "text": "生存冲突？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-035",
+      "text": "政治冲突？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-036",
+      "text": "价值观冲突？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-037",
+      "text": "智能人会不会认为普通人是低效的？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-038",
+      "text": "普通人会不会认为智能人已经不是人？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-039",
+      "text": "谁代表“人类文明的未来”？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-040",
+      "text": "是虚拟世界吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-041",
+      "text": "是记忆系统吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-042",
+      "text": "是 AI 系统吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-043",
+      "text": "是人类文明档案吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-044",
+      "text": "是传统人类创造的吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-045",
+      "text": "是智能人创造的吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-046",
+      "text": "它为什么叫“以后呢”？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-047",
+      "text": "这个名字代表人类失去了什么？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-048",
+      "text": "它是否保存已经消失的人类情感？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-049",
+      "text": "它和故事结局有什么关系？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-050",
+      "text": "太阳光如何承载信息？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "sun-information",
+        "brain-interface"
+      ]
+    },
+    {
+      "id": "q-051",
+      "text": "高维文明如何编码？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "sun-information",
+        "brain-interface"
+      ]
+    },
+    {
+      "id": "q-052",
+      "text": "脑机接口如何输入知识？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "sun-information",
+        "brain-interface"
+      ]
+    },
+    {
+      "id": "q-053",
+      "text": "为什么不同人的大脑承受能力不同？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "science"
+      ],
+      "relatedEntryIds": [
+        "sun-information",
+        "brain-interface"
+      ]
+    },
+    {
+      "id": "q-054",
+      "text": "情绪分析是自动的吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans"
+      ],
+      "relatedEntryIds": [
+        "smart-humans",
+        "desire"
+      ]
+    },
+    {
+      "id": "q-055",
+      "text": "智能人还有多少情感？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans"
+      ],
+      "relatedEntryIds": [
+        "smart-humans",
+        "desire"
+      ]
+    },
+    {
+      "id": "q-056",
+      "text": "欲望还存在吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans"
+      ],
+      "relatedEntryIds": [
+        "smart-humans",
+        "desire"
+      ]
+    },
+    {
+      "id": "q-057",
+      "text": "理性会压制欲望吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans"
+      ],
+      "relatedEntryIds": [
+        "smart-humans",
+        "desire"
+      ]
+    },
+    {
+      "id": "q-058",
+      "text": "知道欲望来源是否会削弱欲望？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "smart-humans"
+      ],
+      "relatedEntryIds": [
+        "smart-humans",
+        "desire"
+      ]
+    },
+    {
+      "id": "q-059",
+      "text": "理性可以产生目标吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "optimal",
+        "desire"
+      ]
+    },
+    {
+      "id": "q-060",
+      "text": "什么是最优解？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "optimal",
+        "desire"
+      ]
+    },
+    {
+      "id": "q-061",
+      "text": "知道一切之后还有探索欲吗？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "optimal",
+        "desire"
+      ]
+    },
+    {
+      "id": "q-062",
+      "text": "理解一个东西的机制会不会摧毁它的意义？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "optimal",
+        "desire"
+      ]
+    },
+    {
+      "id": "q-063",
+      "text": "无知是不是快乐的必要条件？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "philosophy"
+      ],
+      "relatedEntryIds": [
+        "optimal",
+        "desire"
+      ]
+    },
+    {
+      "id": "q-064",
+      "text": "智能人的社会地位是什么？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "divergence",
+        "night-society",
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-065",
+      "text": "接受太阳知识是否自愿？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "divergence",
+        "night-society",
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-066",
+      "text": "普通人为什么逃离太阳？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "divergence",
+        "night-society",
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-067",
+      "text": "两种人类为什么冲突？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "society"
+      ],
+      "relatedEntryIds": [
+        "divergence",
+        "night-society",
+        "two-humanities"
+      ]
+    },
+    {
+      "id": "q-068",
+      "text": "以后呢是什么？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-069",
+      "text": "谁创造它？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-070",
+      "text": "为什么叫以后呢？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-071",
+      "text": "它保存什么？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-072",
+      "text": "它如何进入故事结局？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "after-what"
+      ],
+      "relatedEntryIds": [
+        "after-what"
+      ]
+    },
+    {
+      "id": "q-073",
+      "text": "最终的小人物是谁？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "narrative"
+      ],
+      "relatedEntryIds": []
+    },
+    {
+      "id": "q-074",
+      "text": "小人物属于哪个群体？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "narrative"
+      ],
+      "relatedEntryIds": []
+    },
+    {
+      "id": "q-075",
+      "text": "故事从哪个时间节点切入？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "narrative"
+      ],
+      "relatedEntryIds": []
+    },
+    {
+      "id": "q-076",
+      "text": "最终价值升华是什么？",
+      "status": "open",
+      "kind": "question",
+      "categoryIds": [
+        "narrative"
+      ],
+      "relatedEntryIds": []
+    },
+    {
+      "id": "q-077",
+      "text": "情绪自动拆解已写入核心描述，但主动/自动机制仍被列为问题：这一机制是否已确定，能否主动停止？",
+      "status": "open",
+      "kind": "tension",
+      "categoryIds": [
+        "smart-humans"
+      ],
+      "relatedEntryIds": [
+        "smart-humans",
+        "dog-bone"
+      ]
+    },
+    {
+      "id": "q-078",
+      "text": "知识直连需要脑机接口，但背光社会需持续避光：普通日照会影响没有接口的人吗？停用接口是否足够？",
+      "status": "open",
+      "kind": "tension",
+      "categoryIds": [
+        "science",
+        "society"
+      ],
+      "relatedEntryIds": [
+        "brain-interface",
+        "night-society"
+      ]
+    },
+    {
+      "id": "q-079",
+      "text": "既然提出地下通道，为什么不能永久地下居住，而必须跟随夜晚移动？",
+      "status": "open",
+      "kind": "tension",
+      "categoryIds": [
+        "society",
+        "science"
+      ],
+      "relatedEntryIds": [
+        "night-society"
+      ]
+    },
+    {
+      "id": "q-080",
+      "text": "“完全理性”是智能人的既定事实、程度描述，还是用于最优解讨论的假设？",
+      "status": "open",
+      "kind": "tension",
+      "categoryIds": [
+        "philosophy",
+        "smart-humans"
+      ],
+      "relatedEntryIds": [
+        "smart-humans",
+        "optimal"
+      ]
+    },
+    {
+      "id": "q-081",
+      "text": "太阳信息的范围尚未确定，但智能人能完整分析情绪机制：信息是否包含这些知识？知识调用是否存在错误或边界？",
+      "status": "open",
+      "kind": "tension",
+      "categoryIds": [
+        "science",
+        "smart-humans"
+      ],
+      "relatedEntryIds": [
+        "sun-information",
+        "smart-humans"
+      ]
+    },
+    {
+      "id": "q-082",
+      "text": "“知道一切”仅出现在问题中：智能人是否拥有全部知识，还是只有极强认知能力？",
+      "status": "open",
+      "kind": "tension",
+      "categoryIds": [
+        "philosophy",
+        "smart-humans"
+      ],
+      "relatedEntryIds": [
+        "smart-humans",
+        "optimal"
+      ]
+    },
+    {
+      "id": "q-083",
+      "text": "背光社会、群体冲突和狗与骨头场景尚无明确时间位置：它们的先后与因果关系是什么？",
+      "status": "open",
+      "kind": "tension",
+      "categoryIds": [
+        "narrative"
+      ],
+      "relatedEntryIds": [
+        "night-society",
+        "two-humanities",
+        "dog-bone"
+      ]
+    }
+  ]
+}

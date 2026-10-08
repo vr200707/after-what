@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101419">
+  <meta name="description" content="《以后呢》科幻短片故事开发面板：时间线、核心设定、关键场景与开放问题。">
+  <title>以后呢 · 故事开发面板</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" src="./assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="topbar">
+    <a class="brand" href="#overview" aria-label="以后呢，返回概览"><span class="brand-mark" aria-hidden="true">?</span><span>以后呢<span class="brand-sub">故事开发档案</span></span></a>
+    <nav aria-label="主要导航">
+      <a href="#timeline">时间线</a><a href="#concepts">核心概念</a><a href="#society">社会设想</a><a href="#questions">问题清单</a>
+    </nav>
+    <span class="header-note">团队共享查看</span>
+  </header>
+  <main id="main">
+    <div id="loading" class="loading" role="status">正在读取故事档案…</div>
+    <div id="error" class="error-state" hidden role="alert"><h1>故事档案未能加载</h1><p>请检查网络连接，然后重新加载页面。</p><button id="retry" class="outline-button">重新加载</button></div>
+    <div id="board" hidden>
+      <section id="overview" class="overview section-anchor">
+        <div class="project-heading"><div><p class="project-type">科幻短片 · 前期开发</p><h1>以后呢<span class="title-question" aria-hidden="true">？</span></h1><p class="english-subtitle">Story & Worldbuilding Development Board</p></div><div class="overview-note"><span>世界观 / 故事线 / 开放问题</span><p>所有答案都还在路上。</p><small>已确定与未确定，分别记录。</small></div></div>
+        <div class="premise"><div><span class="section-label">当前核心设定 / Core premise</span><h2 id="core-statement"></h2><p id="core-description"></p></div><a class="key-question" href="#desire"><span>关键问题 / Key question</span><strong id="key-question"></strong><span class="question-link">查看欲望讨论</span></a></div>
+        <div class="board-tools"><div id="stats" class="stats" aria-label="内容条目状态统计"></div><div class="global-search"><label for="global-search">搜索全部设定与问题</label><div class="search-field"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="global-search" type="search" placeholder="试试“欲望”或“太阳”…" autocomplete="off"><kbd aria-hidden="true">/</kbd></div></div></div>
+        <div id="search-results" class="search-results" hidden><div class="result-heading"><h3>搜索结果</h3><button id="clear-search" class="text-button">清空搜索</button></div><div id="search-list" aria-live="polite"></div></div>
+      </section>
+      <section id="timeline" class="section-anchor timeline-section"><div class="section-heading"><div><h2>故事时间线 <span>Timeline</span></h2><p>从追寻知识，到无法停止理解。点击阶段查看设定与问题。</p></div><span class="subtle-label">五个阶段 · 尚未设定年份</span></div><div id="timeline-nodes" class="timeline-nodes"></div></section>
+      <section id="scene" class="section-anchor scene-section"><div class="section-heading"><div><h2>一个关键场景 <span>Scene</span></h2><p>场景片段；叙事位置尚未确定。</p></div></div><div id="scene-card"></div></section>
+      <section id="concepts" class="section-anchor"><div class="section-heading"><div><h2>核心概念 <span>Concepts</span></h2><p>感情、欲望与理性，分别指向什么？</p></div></div><div id="concept-cards" class="concept-grid"></div></section>
+      <section id="society" class="section-anchor"><div class="section-heading"><div><h2>后续社会设想 <span>Society</span></h2><p>以下为可能的发展方向，时间与因果关系保持开放。</p></div></div><div id="society-cards" class="society-grid"></div></section>
+      <section id="after-what" class="section-anchor"><div id="undefined-card"></div></section>
+      <section id="questions" class="section-anchor questions-section"><div class="section-heading"><div><h2>问题清单 <span>Open questions</span></h2><p>保留疑问，继续讨论。逻辑张力单独标记，不自动修正。</p></div><span id="question-total" class="subtle-label"></span></div>
+        <div class="question-toolbar"><div id="category-filters" class="filter-list" role="group" aria-label="按问题类别筛选"></div><div class="question-controls"><label class="question-search"><span class="sr-only">搜索问题</span><input id="question-search" type="search" placeholder="在问题中搜索…"></label><label class="kind-select"><span class="sr-only">问题类型</span><select id="question-kind"><option value="all">全部类型</option><option value="question">原有问题</option><option value="tension">逻辑张力</option></select></label></div></div>
+        <div class="question-list-meta"><span id="question-count" aria-live="polite"></span><button id="reset-filters" class="text-button" hidden>重置筛选</button></div><div id="question-list" class="question-list"></div>
+      </section>
+      <section class="direction"><span class="section-label">当前故事方向 / Story direction</span><p id="direction-summary"></p><small id="direction-note"></small></section>
+      <footer><span>《以后呢》 · 故事开发档案</span><span id="footer-stats"></span><p>主角、结局与最终价值观保持开放。内容修改后重新发布。</p><a href="#overview">回到顶部</a></footer>
+    </div>
+  </main>
+  <dialog id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-top"><span>设定详情 / Record details</span><button id="close-dialog" class="close-button" aria-label="关闭详情">×</button></div><div id="detail-content"></div></dialog>
+  <noscript><div class="error-state">此故事面板需要启用 JavaScript，以读取设定和筛选问题。</div></noscript>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "after-what-story-board",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check site/assets/app.js && node --check site/assets/model.js && node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "happy-dom": "^20.14.5"
+  }
+}

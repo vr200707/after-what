@@ -1,0 +1,29 @@
+# 《以后呢》网站设计 / After What website design
+
+团队共享查看的静态故事开发面板。以用户提供的故事需求及聊天中已确认的信息架构为依据，不增补故事。项目名为《以后呢》，“以后呢”仍是待定义概念。
+
+A static story-development board for shared team review, based exclusively on the supplied story brief and accepted information architecture. The project is titled 《以后呢》; “以后呢” remains an undefined story concept.
+
+## 信息架构 / Information architecture
+
+概览、五节点时间线、狗和骨头场景、智能人/欲望/最优解概念、后续社会设想、以后呢待定义区、问题清单。桌面横向时间线；手机纵向。详情使用原生 dialog；支持键盘关闭、返回来源、URL 定位。
+
+Overview, five-stage timeline, Dog & Bone scene, smart-human/desire/optimal-solution concepts, later social possibilities, undefined After What concept, and open questions. Horizontal desktop timeline, vertical mobile timeline. Native dialog details with keyboard dismissal, source links, and URL anchors.
+
+## 内容边界 / Content boundaries
+
+所有故事文字集中在 site/data/story.json。整体状态与设定陈述状态分开；保留“已确定方向”“可能存在”和待定义标签。场景、后续社会设想不补年份或强制时间位置。逻辑张力仅列问题。页面没有多人实时编辑；修改源数据后重新部署。
+
+All story copy lives in site/data/story.json. Entry and claim statuses are separate; preserve confirmed-direction, possible, and undefined qualifiers. Do not assign dates or narrative positions to scenes or later possibilities. List tensions as questions only. No realtime shared editing; edit source data and redeploy.
+
+## 视觉 / Visual direction
+
+科研档案式工作面板：#101419 背景、#171d24 面板、#293440 细线、#e6edf3 主文字、#9aa9b8 次文字、#93bddc 冷蓝、#d7ad77 暖橙。中文使用系统现代无衬线，标题使用宋体强调提问气质。真实时间顺序才用数字。让五节点认知链成为主要视觉结构，无装饰图像及自动动画。
+
+Research-archive working surface with dark graphite, cold white, restrained blue and amber. System sans-serif body and serif Chinese title. Numbers denote actual timeline order only. The five-stage cognitive chain anchors the composition; no decorative imagery or autoplay animation.
+
+## 数据及交互 / Data and interactions
+
+project、entries、questions、categories、statusDefinitions。entries 包含 type、status、sourceStatus、definitionState、blocks、claims、questionIds、tags。questions 可多分类及多来源。搜索包含正文、陈述和关联问题。统计条目状态、陈述状态、开放问题，绝不计算完成百分比。使用相对 URL 以适配 GitHub Pages 仓库路径。
+
+Project, entries, questions, categories, status definitions. Entries separate presentation blocks, claims, and question references. Multi-category/source questions. Search all text and linked questions. Count entry states, claim states, and open questions without inventing completion percentages. Relative URLs support repository-based GitHub Pages hosting.
